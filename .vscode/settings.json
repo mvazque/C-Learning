@@ -3,6 +3,7 @@
         "stdio.h": "c",
         "typeinfo": "c",
         "sstream": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "__locale": "c"
     }
 }
