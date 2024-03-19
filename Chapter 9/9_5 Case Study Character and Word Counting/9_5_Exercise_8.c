@@ -42,7 +42,6 @@
 int main()
 {
     void findSentenceEnd(char[], int *, int *, int*, int*);
-    float avgWordsPerSentence(int, int);
     float fogIndexCalc(int, int, int);
 
     #define MAXELEM 1024
@@ -74,6 +73,9 @@ void findSentenceEnd(char str[], int *inSentenceFromPreviousLine, int *sentenceC
     int i = 0;
     while(str[i] != '\n')
     {
+        // This block checks if we found the end of a sentence. If an end punctuation is found 
+        // we will check if we were in a sentence meaning we had alphabetical letters since the 
+        // last sentence end punctuation.
         if(isSentenceEnd(str[i]))
         {
             if(inASentence)
@@ -86,7 +88,18 @@ void findSentenceEnd(char str[], int *inSentenceFromPreviousLine, int *sentenceC
         else if(isalpha(str[i]) && inASentence == NO)
             inASentence = YES;
 
-        
+        /**
+         * This block counts the number of words
+         * It also counts the number of characters in a word
+         * When a space is found while we were in a word meaning that a word has ended, we will check
+         * if the word is a "big word" meaning more than two syllables which we have decided is
+         * 6 characters in length. We check if it only reached 7 or 8 characters in length due
+         * to ending in es or ed which disqualifies it to be a long word. If not then the big word
+         * counter is increased
+         * 
+         * Big words will be counted separate from normal words as normal words are counted
+         * whenever we transition to an alphabetical letter for the first time.
+        */
         if(str[i] == ' ')
         {
             if(inAWord && charInWordCount > 6)
@@ -120,6 +133,8 @@ void findSentenceEnd(char str[], int *inSentenceFromPreviousLine, int *sentenceC
         i++;
     }
 
+    // This is kept in case the line did not end in punctuation so we can track a sentence across
+    // lines
     *inSentenceFromPreviousLine = inASentence;
 }
 
@@ -132,12 +147,9 @@ int isSentenceEnd(char c)
     return ('.' == c) || ('?' == c) || ('!' == c) || (';' == c) || (':' == c);
 }
 
-float avgWordsPerSentence(int totalWords, int totalSentences)
-{
-    return (float) totalWords / totalSentences;
-}
-
-
+/**
+ * Calculates the fog index
+*/
 float fogIndexCalc(int numWords, int numSentences, int numBigWords)
 {
     return 0.4 * (((float)numWords / numSentences) + 100 * ((float)numBigWords/numWords));
