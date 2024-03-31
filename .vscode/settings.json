@@ -4,6 +4,7 @@
         "typeinfo": "c",
         "sstream": "c",
         "string.h": "c",
-        "__locale": "c"
+        "__locale": "c",
+        "stdlib.h": "c"
     }
 }
