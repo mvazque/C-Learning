@@ -138,7 +138,6 @@ void modifyHoliday()
     getchar();
 
     htable[indexInput - 1] = yr * 10000 + mo * 100 + day;
-    // printf("New Date is %d\n", htable[indexInput - 1]);
     
     quickSort(htable, 0, numOfHolidays - 1);
     printHolidays(htable);
@@ -147,7 +146,6 @@ void modifyHoliday()
     printf("Above is the updated list. Would you like to overwrite existing list? (y/n): ");
     scanf("%c", &saveResponse);
 
-    printf("%c\n", saveResponse);
     if('y' == saveResponse || 'Y' == saveResponse)
     {
         saveHolidays();
@@ -246,7 +244,6 @@ int partition(int nums[], int lowIndex, int highIndex)
 
 void quickSort(int nums[], int lowIndex, int highIndex)
 {
-    printf("Attempting quicksort\n");
     if(lowIndex >= highIndex)
         return;
 
