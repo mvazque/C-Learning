@@ -5,6 +5,12 @@
         "sstream": "c",
         "string.h": "c",
         "__locale": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "__debug": "c",
+        "exception": "c",
+        "ios": "c",
+        "streambuf": "c",
+        "string": "c",
+        "vector": "c"
     }
 }
