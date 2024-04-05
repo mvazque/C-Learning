@@ -125,7 +125,6 @@ void saveData(char fileName[])
     for(int i = 0; i < NUMPOLLENCOUNTS; i++)
     {
         sprintf(countStr, "%d\n", pollenCounts[i]);
-        // sprintf(str, "%d/%d/%d\n", mo, day, yr);
         fputs(countStr, writeFile);
     }
 
