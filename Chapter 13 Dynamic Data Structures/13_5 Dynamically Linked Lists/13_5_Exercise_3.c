@@ -236,18 +236,10 @@ void processDelete()
 {
     char name[MAXCHARS];
     void delete(char *);
-
-    // printf("\nEnter as many names as you wish to delete, one per line");
-    // printf("\nTo stop entering names, enter a single x\n");
-    // while(1)
-    // {
-        printf("Enter a name to delete: ");
-        fgets(name, MAXCHARS, stdin);
-        name[strlen(name)-1] = '\0';
-        // if(strcmp(name,"x") == 0)
-        //     break;
-        delete(name);
-    // }
+    printf("Enter a name to delete: ");
+    fgets(name, MAXCHARS, stdin);
+    name[strlen(name)-1] = '\0';
+    delete(name);
 }
 
 /**
