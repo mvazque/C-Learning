@@ -12,6 +12,8 @@
         "streambuf": "c",
         "string": "c",
         "vector": "c",
-        "ratio": "c"
+        "ratio": "c",
+        "iostream": "cpp",
+        "iomanip": "cpp"
     }
 }
